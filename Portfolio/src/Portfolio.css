@@ -271,6 +271,8 @@ body {
   gap: 20px;
   background-image: url('/src/assets/Design.png');
   background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(10, 10, 10, 0.35);
 }
 
 .hero-title {
