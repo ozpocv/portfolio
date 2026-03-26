@@ -29,6 +29,7 @@ body {
           inset: 0;
           z-index: 0;          /* derrière tout */
           pointer-events: none; /* ne capte pas la souris */
+          overflow: hidden;
         }
         
         #stars {
@@ -41,7 +42,8 @@ body {
             -ms-animation: animStar 50s linear infinite;
             animation: animStar 50s linear infinite;
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
         }
         
@@ -65,7 +67,8 @@ body {
             -ms-animation: animStar 100s linear infinite;
             animation: animStar 100s linear infinite;
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
         }
         
@@ -89,7 +92,8 @@ body {
             -ms-animation: animStar 150s linear infinite;
             animation: animStar 150s linear infinite;
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
         }
         
@@ -113,7 +117,8 @@ body {
             -ms-animation: animStar 600s linear infinite;
             animation: animStar 600s linear infinite;
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             pointer-events: none;
         }
         
@@ -169,6 +174,7 @@ body {
   color: #ccc;
   min-height: 100%;
   position: relative;
+  z-index: 1;
 }
 
 .accent {
