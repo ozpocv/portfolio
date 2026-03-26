@@ -1,0 +1,72 @@
+.skills-orbit-wrapper {
+  position: relative;
+  width: min(900px, 100%);
+  height: 300px;
+  margin-top: 70px;
+  overflow: visible;
+}
+
+.skills-section .skills-orbit-wrapper {
+  margin-inline: auto;
+}
+
+.skills-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+}
+
+.orbit-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.05s linear;
+  cursor: grab;
+}
+
+.orbit-item:active {
+  cursor: grabbing;
+}
+
+/* style néon */
+.orbit-icon-wrapper {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,255,255,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(0,255,255,0.18), transparent);
+  box-shadow:
+    0 0 15px rgba(0,255,255,0.4),
+    0 0 30px rgba(0,255,255,0.15);
+}
+
+.orbit-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.orbit-item:hover .orbit-icon-wrapper {
+  box-shadow:
+    0 0 20px rgba(0,255,255,0.9),
+    0 0 45px rgba(0,255,255,0.5);
+  transform: scale(1.08);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .skills-orbit-wrapper {
+    height: 260px;
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-orbit-wrapper {
+    transform: scale(0.8);
+  }
+}
