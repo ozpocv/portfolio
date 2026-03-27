@@ -60,7 +60,32 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const formRef = useRef(null)
 
- useEffect(() => {
+ // Typewriter
+useEffect(() => {
+  if (paused) return
+  const speed = deleting ? 50 : 100
+  const timeout = setTimeout(() => {
+    if (!deleting) {
+      const next = TEXT.slice(0, typed.length + 1)
+      setTyped(next)
+      if (next === TEXT) {
+        setPaused(true)
+        setTimeout(() => { setPaused(false); setDeleting(true) }, 1500)
+      }
+    } else {
+      const next = typed.slice(0, typed.length - 1)
+      setTyped(next)
+      if (next === '') {
+        setPaused(true)
+        setTimeout(() => { setPaused(false); setDeleting(false) }, 500)
+      }
+    }
+  }, speed)
+  return () => clearTimeout(timeout)
+}, [typed, deleting, paused])
+
+// Code rain canvas
+useEffect(() => {
   const canvas = document.getElementById('code-rain');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -77,7 +102,7 @@ export default function Portfolio() {
     for (let i = 0; i < drops.length; i++) {
       const char = chars[Math.floor(Math.random() * chars.length)];
       const y = drops[i] * fontSize;
-      ctx.fillStyle = '#7fffff';
+      ctx.fillStyle = '#fff';
       ctx.font = `${fontSize}px 'Fira Code', monospace`;
       ctx.fillText(char, i * fontSize, y);
       const trail = 12;
