@@ -60,37 +60,40 @@ export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const formRef = useRef(null)
 
-  useEffect(() => {
-    if (paused) return
+ useEffect(() => {
+  const canvas = document.getElementById('code-rain');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-    const speed = deleting ? 50 : 100
+  const chars = 'アイウエオカキクケコ0123456789ABCDEF{}[]<>/\\|=+-_';
+  const fontSize = 13;
+  const columns = Math.floor(canvas.width / fontSize);
+  const drops = Array.from({ length: columns }, () => Math.random() * -100);
 
-    const timeout = setTimeout(() => {
-      if (!deleting) {
-        const next = TEXT.slice(0, typed.length + 1)
-        setTyped(next)
-        if (next === TEXT) {
-          setPaused(true)
-          setTimeout(() => {
-            setPaused(false)
-            setDeleting(true)
-          }, 1500)
-        }
-      } else {
-        const next = typed.slice(0, typed.length - 1)
-        setTyped(next)
-        if (next === '') {
-          setPaused(true)
-          setTimeout(() => {
-            setPaused(false)
-            setDeleting(false)
-          }, 500)
-        }
+  const draw = () => {
+    ctx.fillStyle = 'rgba(10,10,10,0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < drops.length; i++) {
+      const char = chars[Math.floor(Math.random() * chars.length)];
+      const y = drops[i] * fontSize;
+      ctx.fillStyle = '#7fffff';
+      ctx.font = `${fontSize}px 'Fira Code', monospace`;
+      ctx.fillText(char, i * fontSize, y);
+      const trail = 12;
+      for (let t = 1; t <= trail; t++) {
+        const alpha = (1 - t / trail) * 0.5;
+        ctx.fillStyle = `rgba(0,255,255,${alpha})`;
+        ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * fontSize, y - t * fontSize);
       }
-    }, speed)
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  };
 
-    return () => clearTimeout(timeout)
-  }, [typed, deleting, paused])
+  const interval = setInterval(draw, 40);
+  return () => clearInterval(interval);
+}, []);
 
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -135,6 +138,7 @@ export default function Portfolio() {
         <div id="stars2" />
         <div id="stars3" />
         <div id="stars4" />
+        <canvas id="code-rain" className="code-rain-canvas" />
       </div>
       <div className="scanlines" />
 
