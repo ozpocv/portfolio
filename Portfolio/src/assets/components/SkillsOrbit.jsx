@@ -23,8 +23,16 @@ export function SkillsOrbit({ skills }) {
     return () => cancelAnimationFrame(frameId)
   }, [])
 
-  const radiusX = 380   // largeur
-  const radiusY = 40    // petite ondulation verticale
+  const radiusX = Math.min(380, window.innerWidth / 2 - 40)
+  const radiusY = 200
+
+  useEffect(() => {
+    const handleResize = () => {
+      setRadiusX(Math.min(380, window.innerWidth / 2 - 40))
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   const handleMouseDown = (e, index) => {
     e.preventDefault()
