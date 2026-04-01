@@ -1,4 +1,4 @@
-import { SkillsOrbit } from '../assets/components/SkillsOrbit'
+import { SkillsOrbit } from '../components/SkillsOrbit'
 import iconHtml from '../assets/html-icon.svg'
 import iconCss from '../assets/css-icon.svg'
 import iconJs from '../assets/javascript-programming-language-icon.svg'
