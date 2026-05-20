@@ -31,7 +31,7 @@ export default function Skills() {
   return (
     <section id="skills" className="section skills-section">
       <h2 className="section-title">
-        Mes <span className="accent">Compétences</span>
+        My <span className="accent">Skills</span>
       </h2>
       <SkillsOrbit skills={skills} />
     </section>

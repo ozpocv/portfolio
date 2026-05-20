@@ -43,10 +43,10 @@ export default function Contact() {
   return (
     <section id="contact" className="section contact-section">
       <h2 className="section-title">
-        Me <span className="accent">Contacter</span>
+        Contact <span className="accent">Me</span>
       </h2>
       <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
-        <Field type="text" id="name" name="user_name" label="Nom" />
+        <Field type="text" id="name" name="user_name" label="Name" />
         <Field type="email" id="email" name="user_email" label="Email" />
         <Field type="textarea" id="message" name="message" label="Message" />
         <button type="submit" className="btn-primary">Send</button>

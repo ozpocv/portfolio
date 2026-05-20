@@ -5,12 +5,11 @@ const scrollTo = (id) => {
 export default function Navbar({ isMenuOpen, setIsMenuOpen }) {
   return (
     <nav className="navbar">
-      <span className="nav-logo">{'OZ'}</span>
-
+      <span className="nav-logo">{'OZE'}</span>
       <ul className="nav-links">
         <li onClick={() => scrollTo('hero')}>Home</li>
         <li onClick={() => scrollTo('skills')}>Skills</li>
-        <li onClick={() => scrollTo('projects')}>Projets</li>
+        <li onClick={() => scrollTo('projects')}>Projects</li>
         <li onClick={() => scrollTo('contact')}>Contact</li>
       </ul>
 

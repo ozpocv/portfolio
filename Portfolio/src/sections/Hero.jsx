@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import cvPdf from '../assets/docs/Cv-Zairaf-Omema-Dev.pdf'
+import cvPdf from '../assets/docs/CV_ZAIRAF_Omema-web_dev.pdf'
 
 const TEXT = 'Junior web developer'
 
@@ -44,18 +44,15 @@ export default function Hero() {
         {typed}<span className="cursor">|</span>
       </p>
       <p className="hero-desc">
-        Jeune développeuse web en formation, passionnée par la création
-        d&apos;expériences digitales innovantes.<br />
-        Je suis à la recherche de nouvelles opportunités pour mettre mes
-        compétences en pratique et continuer à apprendre dans le domaine du
-        développement web.
+        Front-End web developer in training, passionate about building modern and engaging digital experiences.<br />
+        Motivated by continuous learning, I am actively seeking opportunities to apply my skills in real-world projects and grow as a developer within a dynamic environment.
       </p>
       <div className="hero-btns">
         <button className="btn-primary" onClick={() => scrollTo('projects')}>
-          Voir mes projets
+          View My Projects
         </button>
         <a href={cvPdf} target="_blank" rel="noopener noreferrer" className="btn-outline">
-          Télécharger CV
+          Download CV
         </a>
       </div>
     </section>

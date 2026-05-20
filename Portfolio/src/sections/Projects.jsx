@@ -20,7 +20,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section projects-section">
       <h2 className="section-title">
-        Mes <span className="accent">Projets</span>
+        My <span className="accent">Projects</span>
       </h2>
       <div className="projects-grid">
         {projects.map((p) => (
