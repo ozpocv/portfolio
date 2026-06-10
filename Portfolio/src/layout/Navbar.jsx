@@ -5,7 +5,7 @@ const scrollTo = (id) => {
 export default function Navbar({ isMenuOpen, setIsMenuOpen }) {
   return (
     <nav className="navbar">
-      <span className="nav-logo">{'OZE'}</span>
+      <span className="nav-logo">{'OZ'}</span>
       <ul className="nav-links">
         <li onClick={() => scrollTo('hero')}>Home</li>
         <li onClick={() => scrollTo('skills')}>Skills</li>
