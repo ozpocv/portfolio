@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import cvPdf from '../assets/docs/CV-Omema-dev.pdf'
+import cvPdf from '../assets/docs/CV-Omema_ZAIRAF.pdf'
 
 const TEXT = 'Junior web developer'
 
